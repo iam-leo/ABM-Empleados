@@ -1,4 +1,4 @@
-export class Employees {
+export class Employee {
     name: string = '';
     gender: string = '';
     phone: number = 0;
