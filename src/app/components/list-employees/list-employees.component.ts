@@ -18,6 +18,10 @@ export class ListEmployeesComponent implements OnInit{
 
   loadEmployees(){
     this.listEmployees = this._employeeService.getEmployees();
-    console.log(this.listEmployees)
+  }
+
+  deleteEmployee(index: number){
+    this._employeeService.deleteEmployee(index);
+    this.loadEmployees();
   }
 }
