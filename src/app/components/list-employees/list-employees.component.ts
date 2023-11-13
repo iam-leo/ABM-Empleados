@@ -9,6 +9,9 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class ListEmployeesComponent implements OnInit{
   listEmployees: Employee[] = [];
+  isDeleteUserModalOpen = false;
+  nameEmployee = '';
+  idEmployeeToDelete = 0;
 
   constructor( private _employeeService: EmployeeService ){ }
 
@@ -23,5 +26,18 @@ export class ListEmployeesComponent implements OnInit{
   deleteEmployee(index: number){
     this._employeeService.deleteEmployee(index);
     this.loadEmployees();
+    this.isDeleteUserModalOpen = false;
+  }
+
+  openDeleteEmployeeModal(id: number, name: string) {
+    this.isDeleteUserModalOpen = true;
+    this.idEmployeeToDelete = id;
+    this.nameEmployee = name;
+  }
+
+  closeDeleteUserModal(event: boolean) {
+    if (!event) {
+      this.isDeleteUserModalOpen = false;
+    }
   }
 }

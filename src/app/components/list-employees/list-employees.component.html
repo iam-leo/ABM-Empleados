@@ -112,7 +112,7 @@
                     <td class="flex px-6 py-4 text-right gap-x-5">
                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
                         <a
-                            (click)="deleteEmployee(i)"
+                            (click)="openDeleteEmployeeModal(i, employee.name)"
                             class="font-medium text-red-600 cursor-pointer dark:text-red-500"
                         >Eliminar</a>
                     </td>
@@ -153,3 +153,13 @@
         </ul>
     </nav>
 </div>
+
+<!-- Delete Modal -->
+<app-confirm-message
+[name]="nameEmployee"
+*ngIf="isDeleteUserModalOpen"
+(closeModal)="closeDeleteUserModal($event)"
+(deleteConfirmed)="deleteEmployee(idEmployeeToDelete)"
+class="fixed top-0 left-0 flex items-center justify-center w-screen min-h-screen"
+>
+</app-confirm-message>

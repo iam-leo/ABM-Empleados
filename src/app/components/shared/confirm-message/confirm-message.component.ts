@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-confirm-message',
@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./confirm-message.component.css']
 })
 export class ConfirmMessageComponent {
+  @Output() closeModal = new EventEmitter<boolean>();
+  @Output() deleteConfirmed = new EventEmitter<boolean>();
+  @Input() name: string = '';
+  @Input() lastname: string = '';
 
+  confirmedDelete(){
+    //Emitimos la confirmación de eliminacion del usuario al componente padre
+    this.deleteConfirmed.emit(true);
+  }
+
+  cancelDelete(){
+    //Emitimos la cancelación de eliminacion del usuario al componente padre
+    this.closeModal.emit(false);
+  }
 }
