@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list-employees',
@@ -13,7 +14,7 @@ export class ListEmployeesComponent implements OnInit{
   nameEmployee = '';
   idEmployeeToDelete = 0;
 
-  constructor( private _employeeService: EmployeeService ){ }
+  constructor( private _employeeService: EmployeeService, private toastr: ToastrService ){ }
 
   ngOnInit(): void {
     this.loadEmployees();
@@ -27,6 +28,7 @@ export class ListEmployeesComponent implements OnInit{
     this._employeeService.deleteEmployee(index);
     this.loadEmployees();
     this.isDeleteUserModalOpen = false;
+    this.toastr.warning('Empleado/a eliminado/a correctamente.', '¡Eliminado!');
   }
 
   openDeleteEmployeeModal(id: number, name: string) {
@@ -39,5 +41,9 @@ export class ListEmployeesComponent implements OnInit{
     if (!event) {
       this.isDeleteUserModalOpen = false;
     }
+  }
+
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
   }
 }
