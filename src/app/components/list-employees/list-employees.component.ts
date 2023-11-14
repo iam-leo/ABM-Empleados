@@ -42,8 +42,4 @@ export class ListEmployeesComponent implements OnInit{
       this.isDeleteUserModalOpen = false;
     }
   }
-
-  showSuccess() {
-    this.toastr.success('Hello world!', 'Toastr fun!');
-  }
 }

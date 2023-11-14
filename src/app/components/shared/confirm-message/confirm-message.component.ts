@@ -11,6 +11,12 @@ export class ConfirmMessageComponent {
   @Input() name: string = '';
   @Input() lastname: string = '';
 
+  closeDeleteModal(evt: any){
+    if(evt.target.id === 'confirm-modal'){
+      this.cancelDelete();
+    }
+  }
+
   confirmedDelete(){
     //Emitimos la confirmación de eliminacion del usuario al componente padre
     this.deleteConfirmed.emit(true);
