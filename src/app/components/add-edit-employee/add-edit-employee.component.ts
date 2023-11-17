@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-edit-employee.component.css']
 })
 export class AddEditEmployeeComponent {
-  option = '';
+  genres = ['Masculino', 'Femenino', 'Otro'];
+  maritalStatus = ['Soltero', 'Casado', 'Divorciado'];
 
 }
