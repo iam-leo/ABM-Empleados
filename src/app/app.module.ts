@@ -10,6 +10,7 @@ import { AddEditEmployeeComponent } from './components/add-edit-employee/add-edi
 import { ListEmployeesComponent } from './components/list-employees/list-employees.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ConfirmMessageComponent } from './components/shared/confirm-message/confirm-message.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ConfirmMessageComponent } from './components/shared/confirm-message/con
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

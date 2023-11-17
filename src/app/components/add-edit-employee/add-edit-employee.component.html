@@ -8,39 +8,73 @@
                 alt="ilustracion grafica agregar usuario">
         </div>
         <div class="w-full">
-            <form>
+            <form [formGroup]="employeeForm">
                 <div class="relative z-0 w-full mb-6 group">
-                    <input type="text" name="nombre" id="floating_email" class="block py-2.5 px-0 w-full text-lg bg-transparent text-orange-400 border-0 border-b-2 appearance-nonetext-white border-gray-600 focus:border-orange-400 focus:outline-none focus:ring-0 peer placeholder:text-orange-400" placeholder="Nombre" required />
+                    <input
+                        type="text"
+                        name="nombre"
+                        formControlName="name"
+                        class="block py-2.5 px-0 w-full text-lg bg-transparent text-orange-400 border-0 border-b-2 appearance-nonetext-white border-gray-600 focus:border-orange-400 focus:outline-none focus:ring-0 peer placeholder:text-orange-400"
+                        placeholder="Nombre"
+                        autocomplete="off"
+                        required
+                    />
                     <label for="nombre" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre</label>
                 </div>
 
                 <div class="relative z-0 w-full mb-6 group">
-                    <select name="genero" class="block py-2.5 px-0 w-full text-lg bg-transparent text-orange-400 border-0 border-b-2 appearance-nonetext-white border-gray-600 focus:border-orange-400 focus:outline-none focus:ring-0 peer" required>
+                    <select formControlName="genre" name="genero" class="block py-2.5 px-0 w-full text-lg bg-transparent text-orange-400 border-0 border-b-2 appearance-nonetext-white border-gray-600 focus:border-orange-400 focus:outline-none focus:ring-0 peer" required>
                         <option *ngFor="let genre of genres" [value]="genre" class="bg-slate-950">{{ genre }}</option>
                     </select>
                     <label for="Género" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Género</label>
                 </div>
 
                 <div class="relative z-0 w-full mb-6 group">
-                    <input type="date" name="fecha-ingreso" class="block py-2.5 px-0 w-full text-lg bg-transparent text-orange-400 border-0 border-b-2 appearance-nonetext-white border-gray-600 focus:border-orange-400 focus:outline-none focus:ring-0 peer placeholder:text-orange-400/50" placeholder="Fecha de ingreso" required />
+                    <input
+                        type="date"
+                        name="fecha-ingreso"
+                        formControlName="dateEntry"
+                        class="block py-2.5 px-0 w-full text-lg bg-transparent text-orange-400 border-0 border-b-2 appearance-nonetext-white border-gray-600 focus:border-orange-400 focus:outline-none focus:ring-0 peer placeholder:text-orange-400/50"
+                        placeholder="Fecha de ingreso"
+                        autocomplete="off"
+                        required
+                    />
                     <label for="fecha-ingreso" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fecha de ingreso</label>
                 </div>
 
                 <div class="relative z-0 w-full mb-6 group">
-                    <input type="email" name="email" id="floating_email" class="block py-2.5 px-0 w-full text-lg bg-transparent text-orange-400 border-0 border-b-2 appearance-nonetext-white border-gray-600 focus:border-orange-400 focus:outline-none focus:ring-0 peer placeholder:text-orange-400" placeholder="Email" required />
+                    <input
+                        type="email"
+                        name="email"
+                        formControlName="email"
+                        class="block py-2.5 px-0 w-full text-lg bg-transparent text-orange-400 border-0 border-b-2 appearance-nonetext-white border-gray-600 focus:border-orange-400 focus:outline-none focus:ring-0 peer placeholder:text-orange-400"
+                        placeholder="Email"
+                        autocomplete="off"
+                        required
+                    />
                     <label for="email" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
                 </div>
 
                 <div class="relative z-0 w-full mb-6 group">
-                    <input type="text" name="telefono" id="floating_email" class="block py-2.5 px-0 w-full text-lg bg-transparent text-orange-400 border-0 border-b-2 appearance-nonetext-white border-gray-600 focus:border-orange-400 focus:outline-none focus:ring-0 peer placeholder:text-orange-400" placeholder="Teléfono" required />
+                    <input
+                        type="text"
+                        name="telefono"
+                        formControlName="phone"
+                        class="block py-2.5 px-0 w-full text-lg bg-transparent text-orange-400 border-0 border-b-2 appearance-nonetext-white border-gray-600 focus:border-orange-400 focus:outline-none focus:ring-0 peer placeholder:text-orange-400"
+                        placeholder="Teléfono"
+                        autocomplete="off"
+                        required
+                    />
                     <label for="telefono" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Teléfono</label>
                 </div>
 
                 <div class="relative z-0 w-full mb-6 group">
-                    <select name="genero" class="block py-2.5 px-0 w-full text-lg bg-transparent text-orange-400 border-0 border-b-2 appearance-nonetext-white border-gray-600 focus:border-orange-400 focus:outline-none focus:ring-0 peer" required>
-                        <!-- <option selected disabled class="bg-slate-950">Selecciona un estado cívil</option>
-                        <option value="soltero" class="bg-slate-950">Soltero/a</option>
-                        <option value="casado" class="bg-slate-950">Casado/a</option> -->
+                    <select
+                        name="matrial-status"
+                        formControlName="matrialStatus"
+                        class="block py-2.5 px-0 w-full text-lg bg-transparent text-orange-400 border-0 border-b-2 appearance-nonetext-white border-gray-600 focus:border-orange-400 focus:outline-none focus:ring-0 peer"
+                        required
+                    >
                         <option *ngFor="let status of maritalStatus" [value]="status" class="bg-slate-950">{{status}}/a</option>
                     </select>
                     <label for="Género" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Estado cívil</label>
