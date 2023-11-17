@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center justify-center w-full gap-y-4 mt-14">
+<div class="flex flex-col items-center justify-center w-full mb-5 gap-y-4 mt-14">
     <h2 class="text-3xl text-orange-400 uppercase">Agregar Empleado</h2>
     <div class="flex items-center justify-center w-full gap-5">
         <div class="flex items-center justify-center w-full">
@@ -44,6 +44,13 @@
                         <option *ngFor="let status of maritalStatus" [value]="status" class="bg-slate-950">{{status}}/a</option>
                     </select>
                     <label for="Género" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Estado cívil</label>
+                </div>
+                <div class="flex w-full gap-x-8">
+                    <button class="w-full py-2 font-semibold tracking-wide text-white uppercase bg-orange-500 rounded-lg shadow-md hover:bg-orange-600 shadow-orange-500">Guardar</button>
+                    <button
+                        routerLink="/"
+                        class="w-full py-2 font-semibold tracking-wide text-white uppercase bg-orange-600 rounded-lg shadow-md hover:bg-orange-700 shadow-orange-700"
+                    >Cancelar</button>
                 </div>
             </form>
         </div>
