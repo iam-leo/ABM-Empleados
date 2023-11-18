@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Employee } from 'src/app/models/employee';
@@ -18,16 +18,17 @@ export class AddEditEmployeeComponent {
 
   constructor( private fb: FormBuilder, private employeeService: EmployeeService, private router: Router, private toastr: ToastrService ){
     this.employeeForm = this.fb.group({
-      name: [''],
-      genre: ['Masculino'],
-      dateEntry: ['dd/mm/aaaa'],
-      email: [''],
-      phone: [''],
-      matrialStatus: ['Soltero/a']
+      name: ['', Validators.required],
+      genre: ['Masculino', Validators.required],
+      dateEntry: ['dd/mm/aaaa', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.maxLength(10)]],
+      matrialStatus: ['Soltero/a', Validators.required]
     });
   }
 
   saveEmployee(){
+    console.log(this.employeeForm)
     const employee: Employee = {
       name: this.employeeForm.get('name')?.value,
       gender: this.employeeForm.get('genre')?.value,
@@ -42,8 +43,9 @@ export class AddEditEmployeeComponent {
 
     //Show success message
     this.toastr.success('Empleado/a agregado/a correctamente.', '¡Agregado!');
-    this.router.navigate(['/'])
 
+    // Redirigir al home
+    this.router.navigate(['/']);
   }
 
 }

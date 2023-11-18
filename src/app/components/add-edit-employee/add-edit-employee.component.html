@@ -20,6 +20,11 @@
                         required
                     />
                     <label for="nombre" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre</label>
+                    <div
+                        *ngIf="employeeForm.get('name')?.hasError('required') && employeeForm.get('name')?.touched"
+                        class="w-full py-2 my-3 transition bg-red-600 rounded-lg">
+                        <p class="text-xl font-bold text-center text-white">El nombre es obligatorio</p>
+                    </div>
                 </div>
 
                 <div class="relative z-0 w-full mb-6 group">
@@ -27,6 +32,11 @@
                         <option *ngFor="let genre of genres" [value]="genre" class="bg-slate-950">{{ genre }}</option>
                     </select>
                     <label for="Género" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Género</label>
+                    <div
+                        *ngIf="employeeForm.get('genre')?.hasError('required') && employeeForm.get('genre')?.touched"
+                        class="w-full py-2 my-3 transition bg-red-600 rounded-lg">
+                        <p class="text-xl font-bold text-center text-white">El género es obligatorio</p>
+                    </div>
                 </div>
 
                 <div class="relative z-0 w-full mb-6 group">
@@ -40,6 +50,11 @@
                         required
                     />
                     <label for="fecha-ingreso" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fecha de ingreso</label>
+                    <div
+                        *ngIf="employeeForm.get('dateEntry')?.hasError('required') && employeeForm.get('dateEntry')?.touched"
+                        class="w-full py-2 my-3 transition bg-red-600 rounded-lg">
+                        <p class="text-xl font-bold text-center text-white">La fecha de ingreso es obligatoria</p>
+                    </div>
                 </div>
 
                 <div class="relative z-0 w-full mb-6 group">
@@ -53,6 +68,11 @@
                         required
                     />
                     <label for="email" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+                    <div
+                        *ngIf="employeeForm.get('email')?.hasError('required') && employeeForm.get('email')?.touched"
+                        class="w-full py-2 my-3 transition bg-red-600 rounded-lg">
+                        <p class="text-xl font-bold text-center text-white">El email es obligatorio</p>
+                    </div>
                 </div>
 
                 <div class="relative z-0 w-full mb-6 group">
@@ -66,6 +86,11 @@
                         required
                     />
                     <label for="telefono" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Teléfono</label>
+                    <div
+                        *ngIf="employeeForm.get('phone')?.hasError('required') && employeeForm.get('phone')?.touched"
+                        class="w-full py-2 my-3 transition bg-red-600 rounded-lg">
+                        <p class="text-xl font-bold text-center text-white">El teléfono es obligatorio</p>
+                    </div>
                 </div>
 
                 <div class="relative z-0 w-full mb-6 group">
@@ -78,10 +103,16 @@
                         <option *ngFor="let status of maritalStatus" [value]="status" class="bg-slate-950">{{status}}</option>
                     </select>
                     <label for="Género" class="peer-focus:font-medium absolute text-smtext-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Estado cívil</label>
+                    <div
+                        *ngIf="employeeForm.get('matrialStatus')?.hasError('required') && employeeForm.get('matrialStatus')?.touched"
+                        class="w-full py-2 my-3 transition bg-red-600 rounded-lg">
+                        <p class="text-xl font-bold text-center text-white">El estado cívil es obligatorio</p>
+                    </div>
                 </div>
                 <div class="flex w-full gap-x-8">
                     <button
                         (click)="saveEmployee()"
+                        [disabled]="employeeForm.invalid"
                         class="w-full py-2 font-semibold tracking-wide text-white uppercase bg-orange-500 rounded-lg shadow-md hover:bg-orange-600 shadow-orange-500"
                     >Guardar</button>
                     <button
