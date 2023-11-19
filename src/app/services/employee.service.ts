@@ -23,4 +23,17 @@ export class EmployeeService {
   addEmployee(employee: Employee){
     this.listEmployees.unshift(employee)
   }
+
+  getEmployee(index: number){
+    return this.listEmployees[index];
+  }
+
+  editEmployee(emplyee: Employee, index: number){
+    this.listEmployees[index].name = emplyee.name;
+    this.listEmployees[index].gender = emplyee.gender;
+    this.listEmployees[index].dateEntry = emplyee.dateEntry;
+    this.listEmployees[index].email = emplyee.email;
+    this.listEmployees[index].phone = emplyee.phone;
+    this.listEmployees[index].matrialStatus = emplyee.matrialStatus;
+  }
 }
